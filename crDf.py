@@ -22,8 +22,8 @@ if not os.path.isfile( exec ):
   sys.exit()
 
 distro = ''
-# check keyword in "dicDistro.csv"
-with open( dir + 'dicDistro.csv', mode='r' ) as f:
+# check keyword in "listDistro.csv"
+with open( dir + 'listDistro.csv', mode='r' ) as f:
   distro_reader = csv.reader( f, delimiter=',' )
   for x in list(distro_reader)[1:]:
     if keyword in x[1:]:
@@ -32,14 +32,14 @@ with open( dir + 'dicDistro.csv', mode='r' ) as f:
   if distro == '':
     print("No match keyword.")
     print("please check keyword or Add new distribution." )
-    print( dir + 'dicDistro.csv' )
+    print( dir + 'listDistro.csv' )
     sys.exit()
 
 
 if not os.path.isfile( 'flag.txt' ):
   print("Create fake flag: 'flag.txt'")
   with open('flag.txt',mode='w') as f:
-    f.write("flag{%s_you_are_hackerman}"%exec )
+    f.write("flag{%s_you_are_hackerman}"%_exec )
 
 # copy ynetd to current directory
 if not os.path.isfile( 'ynetd' ):
